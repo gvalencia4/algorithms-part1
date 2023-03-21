@@ -5,19 +5,28 @@
  **************************************************************************** */
 
 import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 
+/** Random word picker */
 public class RandomWord {
+    /**
+     * Reads a sequence of words from standard input and prints one of those
+     * words at random
+     *
+     * @param args sequence of words
+     */
     public static void main(String[] args) {
         double p = 1;
-        String word = null;
+        String champion = "";
+
         while (!StdIn.isEmpty()) {
-            String s = StdIn.readString();
+            String nextString = StdIn.readString();
             if (StdRandom.bernoulli(1 / p)) {
-                word = s;
+                champion = nextString;
             }
             p++;
-            System.out.println(word);
         }
+        StdOut.println(champion);
     }
 }
